@@ -1,24 +1,22 @@
 class Node:
-
-    def __init__(self, data) -> None:
+    def __init__(self, data=None, left=None, right=None):
         self.data = data
-        self.left = None
-        self.right = None
-
-def treeTraversalIteration(node):
-    arr = []
+        self.left = left
+        self.right = right
+    
+def inorderTraversalRecursion (node):
     if not node:
         return
-    curr = node
-    while(len(arr) > 0 or curr):
-        if(curr):
-            arr.append(curr)
-            curr = curr.left
-        else:
-            curr = arr.pop()
-            print(curr.data, end=' ')
-            curr = curr.right if curr.right else None
+    if node.left: 
+        inorderTraversalRecursion(node.left)
+    
+    print(node.data, end=' ')
 
+    if node.right:
+        inorderTraversalRecursion(node.right)
+
+def inorderTaraversalIteration(node):
+    pass
 
 root = Node(1)
 root.left = Node(2)
@@ -29,4 +27,6 @@ root.right.right = Node(6)
 root.right.left.left = Node(7)
 root.right.left.right = Node(8)
 
-treeTraversalIteration(root)
+# 4 2 1 7 5 8 3 6 
+
+inorderTraversalRecursion(root)
