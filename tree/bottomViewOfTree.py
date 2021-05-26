@@ -8,7 +8,7 @@ class Node:
 def topViewOfTree(node, dic, height, horizontalDistance):
     if not node: return
     if(horizontalDistance in dic):
-        if(height<dic[horizontalDistance]['height']):
+        if(height>dic[horizontalDistance]['height']):
             dic[horizontalDistance] = {'height':height, 'node':node}
     else:
         dic[horizontalDistance] = {'height':height, 'node':node}
