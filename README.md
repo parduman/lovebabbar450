@@ -1,5 +1,5 @@
 # lovebabbar450
-python solution of love babbar 450 DS Algo Question List
+python and c++ solution of love babbar 450 DS Algo Question List
 
 450 - DSA Sheet 🔥🔥 by- Love Babbar
 😀😀 Hello world, 👋👋 I have created a repo which contains Python solution of 450 DSA questions provided by Love Babbar bhaiya . This is an amazing list with handpicked important questions that are frequently asked is technical interviews .
