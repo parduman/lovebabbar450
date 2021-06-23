@@ -1,6 +1,9 @@
 //Initial template for C++
 
 #include <bits/stdc++.h>
+#include <iostream>
+#include <stdio.h>
+#include<unordered_map>
 using namespace std;
 
  // } Driver Code Ends
@@ -20,7 +23,7 @@ class Solution{
         }
         int answer=0;
 
-        for(auto i = hashmap.begin();i != hashmap.end(); ++i){
+        for(unordered_map<int,int>::iterator i = hashmap.begin();i != hashmap.end(); ++i){
             answer++;
         }
         
@@ -53,3 +56,4 @@ int main() {
 	
 	return 0;
 }  // } Driver Code Ends
+
