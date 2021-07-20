@@ -58,12 +58,61 @@ using namespace std;
 // 	cout <<sizeof(s) <<" " <<sizeof(s[3]) <<" " <<s.size;
 // }
 /////////////////////////////////////////////////////////////////////////
+// int main(){
+// 	stack<int> s;
+// 	s.push(12);
+// 	s.push(22);
+// 	cout << s.size() <<endl;
+// 	cout << s.top() <<endl;
+// 	s.pop();
+// 	cout <<s.top();
+// }
+//////////////////////////////////////////////////////
+
+// int x;
+// int & fun();
+// int main()
+// {
+//    x=100;
+//    int y;
+//    y=fun();
+//    cout<<"1.Value of X is : "<<y<<";";
+//    fun()=200;
+// //    y=fun();
+//    cout<<"2.Value of X is : "<<y;
+//    return 0;
+// }
+// int & fun()
+// {
+//     return x;
+// }
+/////////////////////////////////////////
+// int main(){
+// 	int x = 100;
+// 	int y = &x;
+// 	cout <<x <<" " <<y;
+// }
+
+//////////////////////////////////
+int MakeTheNumber(int N){
+//Enter your code here
+for(int i=1;i<=N;i++){
+    int count = 0;
+    for(int j=1;j<=i;j++){
+        if(i%j == 0){
+            cout <<j <<" ";
+            count++;
+        }
+    }
+    cout <<endl;
+    if(count == N){
+        return i;
+    }
+}
+return 0;
+}
+
 int main(){
-	stack<int> s;
-	s.push(12);
-	s.push(22);
-	cout << s.size() <<endl;
-	cout << s.top() <<endl;
-	s.pop();
-	cout <<s.top();
+cout<<endl << MakeTheNumber(5);
+return 0;
 }
