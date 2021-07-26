@@ -1,2 +1,1 @@
-
-// 			if(gcdIs/i == 0){
+strArr[x][y]==1
