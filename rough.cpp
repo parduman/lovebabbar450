@@ -119,6 +119,7 @@ using namespace std;
 
 /////////////////////////////////////////////////////////////////////////////
 
+
 int counter = 0;
 
 bool isSafe(int x, int y, int arrLength, int stringSize){
@@ -131,7 +132,7 @@ bool isSafe(int x, int y, int arrLength, int stringSize){
 bool ratinMaze(string strArr[],int x, int y, int arrLength, int stringSize, bool furtherMore){
   if(isSafe(x, y, arrLength, stringSize)){
       cout <<x <<" " <<y <<endl; 
-    bool fornextfurtherMore = true;
+    bool fornextfurtherMore = furtherMore;
     if(strArr[x][y] == '1'){
       if((x == (arrLength-1)) && (y == (stringSize-1))){
         if(furtherMore){
@@ -168,10 +169,13 @@ void MatrixChallenge(string strArr[], int arrLength) {
   string s = strArr[0];
   if(ratinMaze(strArr, 0, 0, arrLength, s.size(), true)){
     cout <<"true";
+    return;
   } else if(counter > 0){
     cout <<counter;
+    return;
   } else {
     cout <<"not possible";
+    return;
   }
 
 }
