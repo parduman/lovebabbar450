@@ -94,25 +94,97 @@ using namespace std;
 // }
 
 //////////////////////////////////
-int MakeTheNumber(int N){
-//Enter your code here
-for(int i=1;i<=N;i++){
-    int count = 0;
-    for(int j=1;j<=i;j++){
-        if(i%j == 0){
-            cout <<j <<" ";
-            count++;
-        }
-    }
-    cout <<endl;
-    if(count == N){
-        return i;
-    }
-}
-return 0;
+// int MakeTheNumber(int N){
+// //Enter your code here
+// for(int i=1;i<=N;i++){
+//     int count = 0;
+//     for(int j=1;j<=i;j++){
+//         if(i%j == 0){
+//             cout <<j <<" ";
+//             count++;
+//         }
+//     }
+//     cout <<endl;
+//     if(count == N){
+//         return i;
+//     }
+// }
+// return 0;
+// }
+
+// int main(){
+// cout<<endl << MakeTheNumber(5);
+// return 0;
+// }
+
+////////////////////////////////////////////////
+
+int counter = 0;
+
+bool isSafe(int x, int y, int arrLength, int stringSize){
+  if(x >= 0 && y>= 0 && x<arrLength && y < stringSize){
+    return true;
+  }
+  return false;
 }
 
-int main(){
-cout<<endl << MakeTheNumber(5);
-return 0;
+bool ratinMaze(string strArr[],int x, int y, int arrLength, int stringSize, bool furtherMore){
+  if(isSafe(x, y, arrLength, stringSize)){
+      cout <<x <<" " <<y <<endl; 
+    bool fornextfurtherMore = furtherMore;
+    if(strArr[x][y] == '1'){
+      if((x == (arrLength-1)) && (y == (stringSize-1))){
+        if(furtherMore){
+          return true;
+        } else {
+          counter ++;
+          return false;
+        }
+      }
+    } else {
+        fornextfurtherMore = false;
+        if(furtherMore == false){
+          return false;
+        }
+    }
+    if(ratinMaze(strArr, x+1, y, arrLength, stringSize, fornextfurtherMore)){
+      return true;
+    }
+    if(ratinMaze(strArr, x, y+1, arrLength, stringSize, fornextfurtherMore)){
+      return true;
+    }
+    if(ratinMaze(strArr, x-1, y, arrLength, stringSize, fornextfurtherMore)){
+      return true;
+    }
+    if(ratinMaze(strArr, x, y-1, arrLength, stringSize, fornextfurtherMore)){
+      return true;
+    }
+  }
+  return false;
+}
+
+void MatrixChallenge(string strArr[], int arrLength) {
+  // code goes here
+  string s = strArr[0];
+  if(ratinMaze(strArr, 0, 0, arrLength, s.size(), true)){
+    cout <<"true";
+    return;
+  } else if(counter > 0){
+    cout <<counter;
+    return;
+  } else {
+    cout <<"not possible";
+    return;
+  }
+
+}
+
+int main(void) { 
+   
+  // keep this function call here
+  string A[] = {"10000", "10000", "10111"};
+  int arrLength = sizeof(A) / sizeof(*A);
+  MatrixChallenge(A, arrLength);
+  return 0;
+    
 }
