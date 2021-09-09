@@ -4,8 +4,6 @@
 #include <string>
 #include <unordered_map>
 #include <queue>
-#include <algorithm>
-#include <queue>
 // #include <bits/stdc++.h>
 
 using namespace std;
@@ -32,14 +30,28 @@ int** generateMatrix(int row, int column){
     return arr;
 }
 
+void printAllSubsequence(string str1, string s=""){
+    int size = str1.size();
+    if(size == 0){
+        cout <<s <<endl;
+        return;
+    }
+    char lastChar = str1[size-1];
+    str1.pop_back();
 
-
-
-int main() {
-
-    return 0;
+    printAllSubsequence(str1, s);
+    s.push_back(lastChar);
+    printAllSubsequence(str1, s);
+    return;
 }
 
 
 
-//vector < vector < int >> arr(n, vector < int > (m)); ///declaring 2d matrix
+
+int main() {
+    string str = "abc";
+
+    printAllSubsequence(str);
+
+    return 0;
+}
